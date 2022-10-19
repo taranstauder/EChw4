@@ -21,7 +21,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * from enrollment where enrollment_id=?";
+$sql = "SELECT * from course where course_id=?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $_POST['id']);
 $stmt->execute();
@@ -33,9 +33,9 @@ if ($result->num_rows > 0) {
 ?>
 <form method="post" action="card-edit-save.php">
   <div class="mb-3">
-    <label for="eNumber" class="form-label">Enrollment number</label>
-    <input type="text" class="form-control" id="eNumber" aria-describedby="nameHelp" name="eNumber" value="<?=$row['enrollment_id']?>">
-    <div id="nameHelp" class="form-text">Enter the enrollment number.</div>
+    <label for="cNumber" class="form-label">Course ID</label>
+    <input type="text" class="form-control" id="cNumber" aria-describedby="nameHelp" name="cNumber" value="<?=$row['course_id']?>">
+    <div id="nameHelp" class="form-text">Enter the course ID.</div>
   </div>
   <div class="mb-3">
   <label for="courseList" class="form-label">Courses</label>
@@ -45,6 +45,19 @@ if ($result->num_rows > 0) {
     $courseResult = $conn->query($courseSql);
     while($courseRow = $courseResult->fetch_assoc()) {
       if ($courseRow['course_id'] == $row['course_id']) {
+        $selText = " selected";
+      } else {
+        $selText = "";
+      }
+?>
+    <div class="mb-3">
+  <label for="enrollID" class="form-label">Enroll ID</label>
+<select class="form-select" aria-label="Select enrollment ID" id="enrollment_id" name="eid">
+<?php
+    $enrollmentSql = "select * from enrollment order by status";
+    $enrollmentResult = $conn->query($courseSql);
+    while($enrollmentRow = $courseResult->fetch_assoc()) {
+      if ($enrollmenteRow['enrollment_id'] == $row['enrollment_id']) {
         $selText = " selected";
       } else {
         $selText = "";
