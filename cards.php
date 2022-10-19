@@ -10,7 +10,14 @@
     <?php include("includes/design-top.php");?>
     <?php include("includes/navigation.php");?>
     <h1>Enrollment</h1>
-<div class="card-group">
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Course</th>
+    </tr>
+  </thead>
+  <tbody>
     <?php
 $servername = "localhost";
 $username = "tstauouc_suser";
@@ -24,8 +31,8 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
   
-$sql = "SELECT student_id, student_name from student";
-$result = $conn->query($sql);
+$sql = "SELECT student_name, c.description from enrollment e join student s on s.student_id = e.student_id join course c on c.course_id = e.course_id where s.student_id=" . $row["student_id"];
+$result = $conn->query($sql);   
 
 if ($result->num_rows > 0) {
   // output data of each row
@@ -33,24 +40,14 @@ if ($result->num_rows > 0) {
   ?>
   <tr>
     <td><?=$row["student_name"]?></td>
+    <td><?=$row["description"]?></td>
     <td>
       <form method="post" action="cards-edit.php">
-        <input type="hidden" name="id" value="<?=$row["student_id"]?>">
+        <input type="hidden" name="id" value="<?=$row["enrollment_id"]?>">
         <input type="submit" value="Edit">
       </form>
     </td>
   </tr>
-<?php 
-    $section_sql = "select c.description from enrollment e join student s on s.student_id = e.student_id join course c on c.course_id = e.course_id where s.student_id=" . $row["student_id"];
-    $section_result = $conn->query($section_sql);
-    
-    while($section_row = $section_result->fetch_assoc()) {
-      echo "<li>" . $section_row["description"] . "</li>";
-    }
-?>
-      </ul></p>
-  </div>
-    </div>
 <?php
   }
 } else {
