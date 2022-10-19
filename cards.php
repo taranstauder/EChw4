@@ -33,7 +33,6 @@ if ($result->num_rows > 0) {
   ?>
   <tr>
     <td><?=$row["student_name"]?></td>
-    <td><?=$row["description"]?></td>
     <td>
       <form method="post" action="cards-edit.php">
         <input type="hidden" name="id" value="<?=$row["student_id"]?>">
