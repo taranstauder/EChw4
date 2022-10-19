@@ -37,13 +37,13 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
- ?>
+?>
   <tr>
     <td><?=$row["student_name"]?></td>
     <td><?=$row["description"]?></td>
     <td>
       <form method="post" action="cards-edit.php">
-        <input type="hidden" name="id" value="<?=$row["student_name"]?>">
+        <input type="hidden" name="id" value="<?=$row["student_id"]?>">
         <input type="submit" value="Edit">
       </form>
     </td>
