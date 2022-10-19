@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmtDelete = $conn->prepare($sqlDelete);
     $stmtDelete->bind_param("i", $_POST['iid']);
     $stmtDelete->execute();
-    echo '<div class="alert alert-success" role="alert">New instructor added.</div>';
+    echo '<div class="alert alert-success" role="alert">Instructor Deleted.</div>';
     break;
   }
 }    
