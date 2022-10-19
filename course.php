@@ -73,7 +73,7 @@ if ($result->num_rows > 0) {
           
           <tr>
             <td><?=$row["course_id"]?></td>
-            <td><a href="instructors_course.php?id=<?=$row["course_id"]?>"><?=$row["description"]?></a></td>
+            <td><?=$row["description"]?></td>
             <td>
               <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editCourse<?=$row["course_id"]?>">
                 Edit
