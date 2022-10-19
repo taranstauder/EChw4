@@ -23,7 +23,7 @@
 $servername = "localhost";
 $username = "tstauouc_suser";
 $password = "{kmXl,4Kf[Ea";
-$dbname = "tstauouc_sample";
+$dbname = "tstauouc_hw4";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -32,7 +32,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "select student_name, c.description from take t join student s on s.student_id = t.student_id join course c on c.course_id = t.course_id";
+$sql = "select student_name, c.description from enrollment e join student s on s.student_id = e.student_id join course c on c.course_id = e.course_id";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
