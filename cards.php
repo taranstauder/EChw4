@@ -30,16 +30,18 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
-?>
-   <div class="card">
-    <div class="card-body">
-      <h5 class="card-title"><?=$row["student_name"]?></h5>
-      <p class="card-text"><ul>
-            <form method="post" action="cards-edit.php">
+  ?>
+  <tr>
+    <td><?=$row["student_name"]?></td>
+    <td><?=$row["description"]?></td>
+    <td>
+      <form method="post" action="cards-edit.php">
         <input type="hidden" name="id" value="<?=$row["student_id"]?>">
         <input type="submit" value="Edit">
       </form>
-<?php                                   
+    </td>
+  </tr>
+<?php                                  
   }
 } else {
   echo "0 results";
