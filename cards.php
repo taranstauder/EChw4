@@ -38,7 +38,7 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
 ?>
   <tr>
-    <td><?=$row["student_id"]?></td>
+    <td><?=$row["student_name"]?></td>
     <td><?=$row["description"]?></td>
     <td>
       <form method="post" action="cards-edit.php">
