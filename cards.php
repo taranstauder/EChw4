@@ -35,18 +35,11 @@ if ($result->num_rows > 0) {
     <div class="card-body">
       <h5 class="card-title"><?=$row["student_name"]?></h5>
       <p class="card-text"><ul>
-<?php      
-    $section_sql = "select c.description from enrollment e join student s on s.student_id = e.student_id join course c on c.course_id = e.course_id where s.student_id=" . $row["student_id"];
-    $section_result = $conn->query($section_sql);
-    
-    while($section_row = $section_result->fetch_assoc()) {
-      echo "<li>" . $section_row["description"] . "</li>";
-    }
-?>
-      </ul></p>
-  </div>
-    </div>
-<?php
+            <form method="post" action="cards-edit.php">
+        <input type="hidden" name="id" value="<?=$row["student_id"]?>">
+        <input type="submit" value="Edit">
+      </form>
+<?php                                   
   }
 } else {
   echo "0 results";
