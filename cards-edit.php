@@ -35,7 +35,7 @@ if ($result->num_rows > 0) {
 <form method="post" action="cards-edit-save.php">
   <div class="mb-3">
     <label for="sNumber" class="form-label">Student</label>
-    <input type="text" class="form-control" id="student_id" aria-describedby="sHelp" name="student_id" value="<?=$row['student_id']?>">
+    <input type="text" class="form-control" id="student_id" aria-describedby="sHelp" name="student_id" value="<?=$row['student_name']?>">
     <div id="sHelp" class="form-text">Enter the student name.</div>
   </div>
   <div class="mb-3">
