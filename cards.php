@@ -32,7 +32,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "select student_name, c.description from enrollment e join student s on s.student_id = e.student_id join course c on c.course_id = e.course_id";
+$sql = "select student_id, student_name, c.description from enrollment e join student s on s.student_id = e.student_id join course c on c.course_id = e.course_id";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -44,7 +44,7 @@ if ($result->num_rows > 0) {
     <td><?=$row["description"]?></td>
     <td>
       <form method="post" action="cards-edit.php">
-        <input type="hidden" name="id" value="<?=$row["student_name"]?>">
+        <input type="hidden" name="id" value="<?=$row["student_id"]?>">
         <input type="submit" value="Edit">
       </form>
     </td>
