@@ -59,7 +59,7 @@ if ($result->num_rows > 0) {
   </div>
   <input type="hidden" name="id" value="<?=$row['student_name']?>">
   <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+//</form>
 <?php
   }
 } else {
