@@ -22,7 +22,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-$sql = "SELECT * from enrollment where enrollment_id=?";
+$sql = "SELECT * from enrollment where student_name=?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $_POST['id']);
 $stmt->execute();
