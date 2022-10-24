@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Edit Enroll</title>
+    <title>Edit</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
   </head>
   <body>
@@ -25,11 +25,11 @@ $student_id = $_POST['student_id'];
 $sql = "update enrollment set course_id=? where student_id=?";
 //echo $sql;
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("si", $student_id, $_POST['cid']);
+    $stmt->bind_param("i", $iName, $_POST['id']);
     $stmt->execute();
 ?>
     
-    <h1>Edit </h1>
+    <h1>Edit</h1>
 <div class="alert alert-success" role="alert">
   edited.
 </div>
