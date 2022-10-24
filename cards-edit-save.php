@@ -20,12 +20,12 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-$iName = $_POST['student_id'];
+$student_id = $_POST['student_id'];
 
 $sql = "update enrollment set course_id=? where student_id=?";
 //echo $sql;
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("si", $student_id, $_POST['iid']);
+    $stmt->bind_param("si", $student_id, $_POST['cid']);
     $stmt->execute();
 ?>
     
