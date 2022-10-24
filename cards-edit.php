@@ -32,7 +32,7 @@ if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
 ?>
-<form method="post" action="cards-edit-save.php">
+<form method="post" action="cards-edit.php">
   <div class="mb-3">
     <label for="sNumber" class="form-label">Student</label>
     <input type="text" class="form-control" id="student_id" aria-describedby="sHelp" name="student_id" value="<?=$row['student_id']?>">
