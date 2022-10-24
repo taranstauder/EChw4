@@ -32,7 +32,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "select course_id, c.description, i.instructor_name from course c join instructor i on i.instructor_id = c.instructor_id;
+$sql = "select course_id, description, i.instructor_name, from course c join instructor i on i.instructor_id = c.instructor_id";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -40,7 +40,7 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
 ?>
   <tr>
-    <td><?=$row["c.description"]?></td>
+    <td><?=$row["description"]?></td>
     <td><?=$row["instructor_name"]?></td>
     <td>
       <form method="post" action="cards-edit.php">
