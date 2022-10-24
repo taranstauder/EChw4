@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Edit Cards</title>
+    <title>Edit Enrollment</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
   </head>
   <body>
         <?php include("includes/design-top.php");?>
     <?php include("includes/navigation.php");?>
-    <h1>Edit Cards</h1>
+    <h1>Edit Enrollment</h1>
 <?php
 $servername = "localhost";
 $username = "tstauouc_suser";
@@ -76,7 +76,7 @@ if ($result->num_rows > 0) {
 </form>
 <?php
   }
-} else {
+} //else {
   echo "0 results";
 }
 $conn->close();
