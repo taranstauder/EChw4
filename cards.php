@@ -32,7 +32,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "select student_id, student_name, c.description from enrollment e join student s on s.student_id = e.student_id join course c on c.course_id = e.course_id";
+$sql = "select student_name, c.description from enrollment e join student s on s.student_id = e.student_id join course c on c.course_id = e.course_id";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
