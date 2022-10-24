@@ -44,7 +44,7 @@ if ($result->num_rows > 0) {
 <?php
     $courseSql = "select * from course order by description";
     $courseResult = $conn->query($courseSql);
-    while($courseRow = $couresResult->fetch_assoc()) {
+    while($courseRow = $courseResult->fetch_assoc()) {
       if ($courseRow['course_id'] == $row['course_id']) {
         $selText = " selected";
       } else {
