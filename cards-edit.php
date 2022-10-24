@@ -22,8 +22,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-
-$sql = "SELECT * from course where course_id=?";
+$sql = "SELECT * from enrollment where enrollment_id=?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $_POST['id']);
 $stmt->execute();
@@ -33,33 +32,20 @@ if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
 ?>
-<form method="post" action="card-edit-save.php">
+<form method="post" action="cards-edit-save.php">
   <div class="mb-3">
-    <label for="cNumber" class="form-label">Course ID</label>
-    <input type="text" class="form-control" id="cNumber" aria-describedby="nameHelp" name="cNumber" value="<?=$row['course_id']?>">
-    <div id="nameHelp" class="form-text">Enter the course ID.</div>
+    <label for="eNumber" class="form-label">Enrollment number</label>
+    <input type="text" class="form-control" id="eNumber" aria-describedby="eHelp" name="eNumber" value="<?=$row['enrollmentStatus']?>">
+    <div id="eHelp" class="form-text">Enter the enrollment status.</div>
   </div>
   <div class="mb-3">
-  <label for="courseList" class="form-label">Courses</label>
-<select class="form-select" aria-label="Select course" id="course_id" name="cid">
+  <label for="courseList" class="form-label">Course</label>
+<select class="form-select" aria-label="Select course" id="courseList" name="cid">
 <?php
     $courseSql = "select * from course order by description";
     $courseResult = $conn->query($courseSql);
-    while($courseRow = $courseResult->fetch_assoc()) {
+    while($courseRow = $couresResult->fetch_assoc()) {
       if ($courseRow['course_id'] == $row['course_id']) {
-        $selText = " selected";
-      } else {
-        $selText = "";
-      }
-?>
-    <div class="mb-3">
-  <label for="enrollID" class="form-label">Enroll ID</label>
-<select class="form-select" aria-label="Select enrollment ID" id="enrollment_id" name="eid">
-<?php
-    $enrollmentSql = "select * from enrollment order by status";
-    $enrollmentResult = $conn->query($courseSql);
-    while($enrollmentRow = $courseResult->fetch_assoc()) {
-      if ($enrollmenteRow['enrollment_id'] == $row['enrollment_id']) {
         $selText = " selected";
       } else {
         $selText = "";
@@ -76,7 +62,7 @@ if ($result->num_rows > 0) {
 </form>
 <?php
   }
-} //else {
+} else {
   echo "0 results";
 }
 $conn->close();
