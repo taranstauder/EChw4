@@ -22,7 +22,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-$sql = "SELECT * from student where student_name=?";
+$sql = "SELECT * from student where student_id=?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $_POST['id']);
 $stmt->execute();
@@ -35,7 +35,7 @@ if ($result->num_rows > 0) {
 <form method="post" action="cards-edit-save.php">
   <div class="mb-3">
     <label for="sNumber" class="form-label">Student</label>
-    <input type="text" class="form-control" id="student_id" aria-describedby="sHelp" name="student_id" value="<?=$row['student_name']?>">
+    <input type="text" class="form-control" id="student_id" aria-describedby="sHelp" name="student_id" value="<?=$row['student_id']?>">
     <div id="sHelp" class="form-text">Enter the student name.</div>
   </div>
   <div class="mb-3">
