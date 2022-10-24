@@ -34,9 +34,9 @@ if ($result->num_rows > 0) {
 ?>
 <form method="post" action="cards-edit-save.php">
   <div class="mb-3">
-    <label for="eNumber" class="form-label">Enrollment number</label>
-    <input type="text" class="form-control" id="eNumber" aria-describedby="eHelp" name="eNumber" value="<?=$row['enrollmentStatus']?>">
-    <div id="eHelp" class="form-text">Enter the enrollment status.</div>
+    <label for="sNumber" class="form-label">Student</label>
+    <input type="text" class="form-control" id="sNumber" aria-describedby="sHelp" name="sNumber" value="<?=$row['student_name']?>">
+    <div id="sHelp" class="form-text">Enter the student name.</div>
   </div>
   <div class="mb-3">
   <label for="courseList" class="form-label">Course</label>
