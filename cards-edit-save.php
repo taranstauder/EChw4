@@ -25,7 +25,7 @@ $student_id = $_POST['student_id'];
 $sql = "update enrollment set course_id=? where student_id=?";
 //echo $sql;
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $iName, $_POST['id']);
+    $stmt->bind_param("si", $student_id, $_POST['id']);
     $stmt->execute();
 ?>
     
