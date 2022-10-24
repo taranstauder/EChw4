@@ -22,7 +22,7 @@ if ($conn->connect_error) {
 }
 $student_id = $_POST['student_id'];
 
-$sql = "update enrollment set course_id=? where student_id=?";
+$sql = "update enrollment set student_id=? where course_id=?";
 //echo $sql;
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("si", $student_id, $_POST['id']);
