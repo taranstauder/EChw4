@@ -96,13 +96,13 @@ if ($result->num_rows > 0) {
                       <option value="<?=$instructorRow['course_id']?>"><?=$instructorRow['description']?></option>
                     <?php
                    }
-                  $conn->close();
                    ?>
 <?php
   }
 } else {
   echo "0 results";
 }
+               $conn->close();
 ?>
                 </select>
                 </div>
