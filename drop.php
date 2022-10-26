@@ -73,12 +73,12 @@ if ($result->num_rows > 0) {
                  <label for="editrecord" class="form-label">Pick the Student</label>
                 <select class="form-select" aria-label="Select Student" id="editrecord" name="editrecord">
                    <?php
-                    $editSql = "select * from student where student_id=?";
-                    $editResult = $conn->query($editSql);
-                    while($editRow = $editResult->fetch_assoc()) {
+                    $instructorSql = "select * from student where student_id=?";
+                    $instructorResult = $conn->query($instructorSql);
+                    while($instructorRow = $instructorResult->fetch_assoc()) {
      
                    ?>
-                    <option value="<?=$editRow['student_id']?>"><?=$instructorRow['student_name']?></option>
+                    <option value="<?=$instructorRow['student_id']?>"><?=$instructorRow['student_name']?></option>
                   <?php
                      }
                   ?>
@@ -88,12 +88,12 @@ if ($result->num_rows > 0) {
                  <label for="cname" class="form-label">Pick the Course</label>
                  <select class="form-select" aria-label="Select Course" id="cname" name="cname">
                     <?php
-                      $courseSql = "select * from course order by description";
-                      $courseResult = $conn->query($courseSql);
-                      while($courseRow = $courseResult->fetch_assoc()) {
+                      $instructorSql = "select * from course order by description";
+                      $instructorResult = $conn->query($instructorSql);
+                      while($instructorRow = $instructorResult->fetch_assoc()) {
      
                    ?>
-                      <option value="<?=$courseRow['course_id']?>"><?=$courseRow['description']?></option>
+                      <option value="<?=$instructorRow['course_id']?>"><?=$instructorRow['description']?></option>
                     <?php
                    }
                   $conn->close();
