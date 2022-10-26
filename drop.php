@@ -49,11 +49,10 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
-   <tr>
+?>   <tr>
     <td><?=$row["student_name"]?></td>
     <td><?=$row["description"]?></td>
-  </tr>
-?>    
+  </tr>   
       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit">
         Edit
       </button>
