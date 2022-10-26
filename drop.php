@@ -92,6 +92,9 @@ if ($result->num_rows > 0) {
                    }
                   $conn->close();
                    ?>
+} else {
+  echo "0 results";
+}
                 </select>
                 </div>
                  <input type="hidden" name="saveType" value="Add">
