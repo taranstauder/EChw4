@@ -97,18 +97,18 @@ if ($result->num_rows > 0) {
                     <?php
                    }
                    ?>
-<?php
-  }
-} else {
-  echo "0 results";
-}
-?>
                 </select>
                 </div>
                  <input type="hidden" name="saveType" value="Edit">
                  <button type="submit" class="btn btn-primary">Submit</button>
-            $conn->close();
            </form>
+              <?php
+  }
+} else {
+  echo "0 results";
+}
+                $conn->close();
+?>
             </div>
           </div>
           </div>
