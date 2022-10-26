@@ -48,7 +48,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
-?>
+    
       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit">
         Edit
       </button>
@@ -92,10 +92,12 @@ if ($result->num_rows > 0) {
                    }
                   $conn->close();
                    ?>
-                   }
+<?php
+  }
 } else {
   echo "0 results";
 }
+?>
                 </select>
                 </div>
                  <input type="hidden" name="saveType" value="Add">
