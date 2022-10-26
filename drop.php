@@ -102,12 +102,12 @@ if ($result->num_rows > 0) {
 } else {
   echo "0 results";
 }
-               $conn->close();
 ?>
                 </select>
                 </div>
                  <input type="hidden" name="saveType" value="Edit">
                  <button type="submit" class="btn btn-primary">Submit</button>
+            $conn->close();
            </form>
             </div>
           </div>
