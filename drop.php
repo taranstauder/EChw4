@@ -36,7 +36,7 @@ if ($conn->connect_error) {
     case 'Edit':
       $sqlEdit = "update enrollment set course_id=? where student_id=?";
       $stmtEdit = $conn->prepare($sqlEdit);
-      $stmtEdit->bind_param("ci", $_POST['student_name'], $_POST['description']);
+      $stmtEdit->bind_param("i", $_POST['student_name'], $_POST['description']);
       $stmtEdit->execute();
       echo '<div class="alert alert-success" role="alert">edited.</div>';
       break;
