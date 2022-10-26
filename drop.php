@@ -34,9 +34,9 @@ if ($conn->connect_error) {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
   switch ($_POST['saveType']) {
     case 'Edit':
-      $sqlEdit = "update enrollment set course_id=? where student_id=?";
+      $sqlEdit = "update enrollment set student_id=? where course_id=?";
       $stmtEdit = $conn->prepare($sqlEdit);
-      $stmtEdit->bind_param("si", $_POST['student_name'], $_POST['description']);
+      $stmtEdit->bind_param("ii", $_POST['editrecord'], $_POST['cname']);
       $stmtEdit->execute();
       echo '<div class="alert alert-success" role="alert">edited.</div>';
       break;
