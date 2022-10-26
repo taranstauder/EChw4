@@ -43,7 +43,7 @@ if ($conn->connect_error) {
   }
     }
 
-$sql = "select s.student_id, student_name, c.description, e.enrollment_id from enrollment e join student s on s.student_id = e.student_id join course c on c.course_id = e.course_id";
+$sql = "select s.student_id, student_name, c.description, c.course_id, e.enrollment_id from enrollment e join student s on s.student_id = e.student_id join course c on c.course_id = e.course_id";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -74,9 +74,14 @@ if ($result->num_rows > 0) {
                     $instructorSql = "select * from student order by student_id";
                     $instructorResult = $conn->query($instructorSql);
                     while($instructorRow = $instructorResult->fetch_assoc()) {
+                      if ($instructorRow['student_id'] == $row['student_id']) {
+                        $selText = " selected";
+                      } else {
+                        $selText = "";
+                      }
      
                    ?>
-                    <option value="<?=$instructorRow['student_id']?>"><?=$instructorRow['student_name']?></option>
+                    <option value="<?=$instructorRow['student_id']?>"<?=$selText?>><?=$instructorRow['student_name']?></option>
                   <?php
                      }
                   ?>
