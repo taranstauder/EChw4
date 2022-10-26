@@ -41,6 +41,7 @@ if ($conn->connect_error) {
       echo '<div class="alert alert-success" role="alert">edited.</div>';
       break;
   }
+    }
 
 $sql = "select s.student_id, student_name, c.description from enrollment e join student s on s.student_id = e.student_id join course c on c.course_id = e.course_id";
 $result = $conn->query($sql);
