@@ -73,7 +73,7 @@ if ($result->num_rows > 0) {
                  <label for="editrecord" class="form-label">Pick the Student</label>
                 <select class="form-select" aria-label="Select Student" id="editrecord" name="editrecord">
                    <?php
-                    $instructorSql = "select * from student where student_id=?";
+                    $instructorSql = "select * from student order by student_id";
                     $instructorResult = $conn->query($instructorSql);
                     while($instructorRow = $instructorResult->fetch_assoc()) {
      
