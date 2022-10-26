@@ -53,12 +53,12 @@ if ($result->num_rows > 0) {
     <td><?=$row["student_name"]?></td>
     <td><?=$row["description"]?></td>
     <td>
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit">
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit<?=$row["enrollment_id"]?>">
         Edit
       </button>
      
       <!-- Modal -->
-      <div class="modal fade" id="edit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+      <div class="modal fade" id="edit<?=$row["enrollment_id"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -68,8 +68,8 @@ if ($result->num_rows > 0) {
             <div class="modal-body">
              <form method="post" action="">
               <div class="mb-3">
-                 <label for="editrecord" class="form-label">Pick the Student</label>
-                <select class="form-select" aria-label="Select Student" id="editrecord" name="editrecord">
+                 <label for="editrecord<?=$row["enrollment_id"]?>" class="form-label">Pick the Student</label>
+                <select class="form-select" aria-label="Select Student" id="editrecord<?=$row["enrollment_id"]?>" name="editrecord">
                    <?php
                     $instructorSql = "select * from student order by student_id";
                     $instructorResult = $conn->query($instructorSql);
@@ -105,6 +105,10 @@ if ($result->num_rows > 0) {
                  <input type="hidden" name="saveType" value="Edit">
                  <button type="submit" class="btn btn-primary">Submit</button>
            </form>
+            </div>
+          </div>
+          </div>
+          </div>
               </td>
                 </tr>   
 
@@ -115,10 +119,6 @@ if ($result->num_rows > 0) {
 }
                 $conn->close();
 ?>
-            </div>
-          </div>
-          </div>
-          </div>
   </tbody>
     </table>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
