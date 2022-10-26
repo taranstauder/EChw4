@@ -52,7 +52,7 @@ if ($result->num_rows > 0) {
 ?>   <tr>
     <td><?=$row["student_name"]?></td>
     <td><?=$row["description"]?></td>
-  </tr>   
+    <td>
       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit">
         Edit
       </button>
@@ -100,6 +100,9 @@ if ($result->num_rows > 0) {
                  <input type="hidden" name="saveType" value="Edit">
                  <button type="submit" class="btn btn-primary">Submit</button>
            </form>
+              </td>
+                </tr>   
+
               <?php
   }
 } else {
