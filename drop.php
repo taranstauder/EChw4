@@ -94,9 +94,13 @@ if ($result->num_rows > 0) {
                       $instructorSql = "select * from course order by description";
                       $instructorResult = $conn->query($instructorSql);
                       while($instructorRow = $instructorResult->fetch_assoc()) {
-     
+                        if ($instructorRow['course_id'] == $row['course_id']) {
+                        $selText = " selected";
+                      } else {
+                        $selText = "";
+                      }
                    ?>
-                      <option value="<?=$instructorRow['course_id']?>"><?=$instructorRow['description']?></option>
+                      <option value="<?=$instructorRow['course_id']?>"<?=$selText?>><?=$instructorRow['description']?></option>
                     <?php
                    }
                    ?>
